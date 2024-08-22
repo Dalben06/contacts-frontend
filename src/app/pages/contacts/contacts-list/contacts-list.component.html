@@ -1,0 +1,58 @@
+<mat-card class="cardWithShadow theme-card">
+
+  <button (click)="openDetail(null)"
+          mat-icon-button 
+            >
+            <i-tabler name="circle-plus"  ></i-tabler></button>
+  <mat-card-header>
+    <mat-card-title class="m-b-0 d-flex justify-content-between">
+      <span>Your Contacts</span>
+
+      
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+
+  
+    <table mat-table [dataSource]="contacts" >
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+    
+
+      <ng-container matColumnDef="formatNumber">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.formatNumber}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button (click)="openDetail(element)"
+          mat-icon-button 
+            >
+            <i-tabler name="edit"  ></i-tabler>
+          </button>
+
+          <button 
+          mat-icon-button (click)="removeContact(element.uuId)"
+            >
+            <i-tabler name="trash"></i-tabler>
+          </button> </td>
+      </ng-container>
+      
+
+    
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>

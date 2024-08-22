@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Contact</h2>
+<mat-dialog-content class="w-100">
+  <mat-card class="cardWithShadow boxed-auth" *ngIf="data">
+    <mat-card-content class="min-vw-100" >
+
+      <form class="m-t-30" [formGroup]="form">
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" 
+          >Name</mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput  formControlName="name" />
+        </mat-form-field>
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+          >Email</mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput    formControlName="email">
+        </mat-form-field>
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+          >Number</mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput    formControlName="number" />
+        </mat-form-field>
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+          >Country code</mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <input matInput  type="number"  formControlName="code" />
+        </mat-form-field>
+
+        
+      </form>
+      
+    </mat-card-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" [disabled]="form.invalid" (click)="submitContact()"  cdkFocusInitial>Confirm</button>
+</mat-dialog-actions>
